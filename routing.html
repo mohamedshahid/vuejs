@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Routing</title>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+</head>
+<body>
+	<div id="vue-routing">
+		<router-link to="/r1">R1</router-link>
+		<router-link to="/r2">R2</router-link>
+
+		<router-view></router-view>
+	</div>
+
+	<script>
+		const Route1 = {template: `<div style="background-color: red;">Bismillah</div>`};
+		const Route2 = {template: `<div style="background-color: yellow;">Alhamdulillah</div>`};
+
+		const routes = [
+			{path: '/r1', component: Route1},
+			{path: '/r2', component: Route2}
+		];
+
+		const router = new VueRouter({
+			routes: routes
+		});
+
+		var vueApp = new Vue({
+			el: '#vue-routing',
+			router: router
+		});
+	</script>
+</body>
+</html>

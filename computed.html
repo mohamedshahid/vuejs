@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computed Property</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="computed">
+		<input type="text" v-model="firstName"><br>
+		<input type="text" v-model="lastName"><br>
+		<input type="text" v-model="count"><br>
+		<h1>First Name: {{firstName}}</h1>
+		<h1>Last Name: {{lastName}}</h1>
+		<h1>Full Name: {{fullName}}</h1>
+		<h1>Count Plus: {{countPlus}}</h1>
+	</div>
+
+	<script>
+		var vueInstance = new Vue({
+			el: '#computed',
+			data: {
+				firstName: 'Mohamed Shahid',
+				lastName: 'Ansari',
+				count: 0
+			},
+			computed: {
+				fullName: function() {
+					return this.firstName+" "+this.lastName;
+				},
+				countPlus: function() {
+					return ++this.count;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

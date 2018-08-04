@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>computed get set</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="computed-get-set">
+		<input type="text" v-model="fullName">
+		<h1>First Name: {{firstName}}</h1>
+		<h1>Last Name: {{lastName}}</h1>
+	</div>
+
+	<script>
+		//vue instance
+		var vue1 = new Vue({
+			el: '#computed-get-set',
+			data: {
+				firstName: 'Mohamed Shahid',
+				lastName: 'Ansari'
+			},
+			computed: {
+				fullName: {
+					get: function() {
+						return this.firstName+" "+this.lastName;
+					},
+					set: function(data) {
+						var name = data.split(" ");
+						this.firstName = name[0];
+						this.lastName = name[1];
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

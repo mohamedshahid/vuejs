@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Component</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="component1">
+		<test-component></test-component>
+		<h1>{{name}}</h1>
+	</div>
+	<div id="component2">
+		<test-component></test-component>
+		<h1>{{name}}</h1>
+	</div>
+	<div id="component3">
+		<vue3-component1></vue3-component1>
+		<h1>{{name}}</h1>
+	</div>
+
+	<script>
+		//make Global component
+		Vue.component('test-component', {
+			template: `<div style="color:green;"><h1>Alhamdulillah</h1></div>`
+		});
+
+		// make vue instance
+		var vue1 = new Vue({
+			el: '#component1',
+			data: {
+				name: 'Mohamed Shahid'
+			}
+		});
+
+		// make vue insatnce
+		var vue2 = new Vue({
+			el: '#component2',
+			data: {
+				name: 'Ansari'
+			}
+		});
+
+		// make vue insatnce
+		var vue3 = new Vue({
+			el: '#component3',
+			data: {
+				name: 'Mohamed Shahid Ansari'
+			},
+			// local component
+			components: {
+				'vue3-component1': {
+					template: `<div><h1 style="color: red;">Bismillah</h1></div>`
+				}
+			}
+		});
+	</script>
+</body>
+</html>

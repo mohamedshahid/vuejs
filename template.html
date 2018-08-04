@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Template</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="template">
+		<h1>{{firstName}}</h1>
+		<h1>{{lastName}}</h1>
+		<div v-html="fullName"></div>
+		<img v-bind:src="imageSrc">
+	</div>
+
+	<script>
+		var vue_template = new Vue({
+			el: '#template',
+			data: {
+				firstName: 'Mohamed Shahid',
+				lastName: 'Ansari',
+				fullName: `<h1>Mohamed Shahid Ansari</h1>`,
+				imageSrc: 'images/pic.png'
+			}
+		});
+	</script>
+</body>
+</html>

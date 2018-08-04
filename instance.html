@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Instance</title>
+<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="instance">
+		<h1>{{firstName}}</h1>
+		<h1>{{lastName}}</h1>
+		<h1>{{fullName()}}</h1>
+	</div>
+	<script>
+		var nameData = {firstName: 'Mohamed Shahid', lastName: 'Ansari'};
+
+		var vue_instance = new Vue({
+			el: '#instance',
+			data: nameData,
+			methods: {
+				fullName: function() {
+					return this.firstName+" "+this.lastName;
+				}
+			}
+		});
+
+		console.log(vue_instance.firstName);
+		console.log(vue_instance.$data);
+		console.log(vue_instance.$data.firstName);
+
+		// component
+		var vue_component = Vue.extend({
+			data: function() {
+				return nameData;
+			}
+		});
+
+		// instance of component
+		var instance_component = new vue_component;
+
+		console.log(instance_component.lastName);
+		console.log(instance_component.$data);
+	</script>
+</body>
+</html>

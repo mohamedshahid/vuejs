@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>watch property</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="watch">
+		<label>Kilometer: </label><input type="number" v-model="km"><br>
+		<label>Meter: </label><input type="number" v-model="m"><br>
+	</div>
+
+	<script>
+		var vue1 = new Vue({
+			el: '#watch',
+			data: {
+				km: 0,
+				m: 0
+			},
+			watch: {
+				km: function(val) {
+					this.km = val;
+					this.m = val * 1000;
+				},
+				m: function(val) {
+					this.m = val;
+					this.km = val / 1000;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

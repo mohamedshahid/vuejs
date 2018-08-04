@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>component with more option</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="vue-app">
+		<test-component></test-component>
+	</div>
+
+	<div id="vue-app2">
+		<test-component></test-component>
+	</div>
+
+	<script>
+		//global component
+		Vue.component('test-component', {
+			template: `<div v-bind:style="{'background-color': backgroundColor}" v-on:mouseover="lastName()" v-on:mouseout="firstName()"><h1>on mouse hover firtsname change to last name : {{name}}</h1></div>`,
+			data: function() {
+				return {
+					name: 'Mohamed Shahid',
+					backgroundColor: 'yellow'
+				}
+			},
+			methods: {
+				firstName: function() {
+					this.name = "Mohamed Shahid",
+					this.backgroundColor = "yellow"
+				},
+				lastName: function() {
+					this.name = "Ansari",
+					this.backgroundColor = "red"
+				}
+			}
+		});
+
+		// vue instance
+		var vue1 = new Vue({
+			el: '#vue-app'
+		});
+
+		// vue instance
+		var vue2 = new Vue({
+			el: '#vue-app2'
+		});
+	</script>
+</body>
+</html>
